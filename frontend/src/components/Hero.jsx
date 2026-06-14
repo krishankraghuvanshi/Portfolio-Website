@@ -20,9 +20,9 @@ const Hero = () => {
           <h3 style={{ fontSize: '1.5rem', color: 'var(--text-secondary)', fontWeight: 500, marginBottom: '1.5rem', whiteSpace: 'nowrap' }}>
             Competitive Programmer · Full Stack Developer · Problem Solver · Machine Learning
           </h3>
-          {/* <p style={{ fontSize: '1.2rem', color: 'var(--text-secondary)', marginBottom: '2.5rem', maxWidth: '600px' }}>
-            A passionate Full Stack Developer building premium, high-performance web applications with modern technologies. Let's create something amazing together.
-          </p> */}
+          <p style={{ fontSize: '1.2rem', color: 'var(--text-secondary)', marginBottom: '2.5rem', maxWidth: '700px', lineHeight: '1.6' }}>
+            Hello! I'm Krishank, a Computer Science & Engineering (B.Tech) student, competitive programmer, and software developer. I thrive on solving complex algorithmic challenges, exploring cutting-edge technologies, and building innovative digital experiences. Let's get in touch and build something different!
+          </p>
           <div style={{ display: 'flex', gap: '1rem' }}>
             <a href="#contact" className="btn">Get In Touch</a>
             <a href="#projects" className="btn" style={{ background: 'transparent', border: '1px solid var(--glass-border)' }}>View Work</a>
