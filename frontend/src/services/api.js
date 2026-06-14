@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-// Use relative /api for Vercel production, and localhost for local development
-const API_URL = import.meta.env.PROD ? '/api' : 'http://localhost:4000/api';
+// Use relative /_/backend/api for Vercel production, and localhost for local development
+const API_URL = import.meta.env.PROD ? '/_/backend/api' : 'http://localhost:4000/api';
 
 export const fetchPortfolioData = async () => {
   try {
