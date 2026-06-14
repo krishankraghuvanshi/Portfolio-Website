@@ -32,7 +32,7 @@ const Achievements = () => {
   return (
     <section id="achievements" className="section">
       <div className="container">
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '1rem', marginBottom: '3rem' }}>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '1rem', marginBottom: '3rem', flexWrap: 'wrap' }}>
           <h2 className="section-title" style={{ marginBottom: 0 }}>Achievements</h2>
           <a href="https://emoji.gg/emoji/7349_steve_holt" target="_blank" rel="noopener noreferrer" style={{ display: 'flex' }}>
             <img src="https://cdn3.emoji.gg/emojis/7349_steve_holt.gif" width="64" height="64" alt="steve_holt" />

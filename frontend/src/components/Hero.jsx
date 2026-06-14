@@ -14,13 +14,13 @@ const Hero = () => {
           <h2 style={{ fontSize: '1.5rem', color: 'white', marginBottom: '1rem' }}>
             Hello, I am
           </h2>
-          <h1 className="gradient-text" style={{ fontSize: '5rem', fontWeight: 800, lineHeight: 1.1, marginBottom: '0.5rem' }}>
+          <h1 className="gradient-text" style={{ fontSize: 'clamp(3rem, 8vw, 5rem)', fontWeight: 800, lineHeight: 1.1, marginBottom: '0.5rem' }}>
             Krishank <span style={{ whiteSpace: 'nowrap' }}>Raghuvanshi
             <a href="https://emoji.gg/emoji/807527-pigeondance" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block', marginLeft: '1rem', verticalAlign: 'middle' }}>
               <img src="https://cdn3.emoji.gg/emojis/807527-pigeondance.gif" width="64" height="64" alt="pigeondance" style={{ verticalAlign: 'middle', display: 'block' }} />
             </a></span>
           </h1>
-          <h3 style={{ fontSize: '1.5rem', color: 'var(--text-secondary)', fontWeight: 500, marginBottom: '1.5rem', whiteSpace: 'nowrap' }}>
+          <h3 style={{ fontSize: 'clamp(1.1rem, 4vw, 1.5rem)', color: 'var(--text-secondary)', fontWeight: 500, marginBottom: '1.5rem' }}>
             Competitive Programmer · Full Stack Developer · Problem Solver · Machine Learning
           </h3>
           <p style={{ fontSize: '1.2rem', color: 'var(--text-secondary)', marginBottom: '2.5rem', maxWidth: '700px', lineHeight: '1.6' }}>

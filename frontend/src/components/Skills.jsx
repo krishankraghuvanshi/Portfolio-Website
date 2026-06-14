@@ -5,7 +5,7 @@ const Skills = ({ data }) => {
   return (
     <section id="skills" className="section">
       <div className="container">
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '1rem', marginBottom: '3rem' }}>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '1rem', marginBottom: '3rem', flexWrap: 'wrap' }}>
           <h2 className="section-title" style={{ marginBottom: 0 }}>Technical Skills</h2>
           <a href="https://emoji.gg/emoji/9843-renpylogo" target="_blank" rel="noopener noreferrer" style={{ display: 'flex' }}>
             <img src="https://cdn3.emoji.gg/emojis/9843-renpylogo.png" width="64" height="64" alt="RenPyLogo" />
