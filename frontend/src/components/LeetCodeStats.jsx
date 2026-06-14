@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
+import { fetchLeetCodeStats } from '../services/api';
 
 const LeetCodeStats = () => {
   const [stats, setStats] = useState(null);
@@ -11,18 +12,10 @@ const LeetCodeStats = () => {
   useEffect(() => {
     const fetchStats = async () => {
       try {
-        const [solvedRes, contestRes] = await Promise.all([
-          fetch('https://alfa-leetcode-api.onrender.com/kri5H4nkr49Hu1c/solved'),
-          fetch('https://alfa-leetcode-api.onrender.com/kri5H4nkr49Hu1c/contest')
-        ]);
+        const data = await fetchLeetCodeStats();
         
-        if (!solvedRes.ok || !contestRes.ok) throw new Error('Failed to fetch data');
-        
-        const solvedData = await solvedRes.json();
-        const contestData = await contestRes.json();
-        
-        setStats(solvedData);
-        setContestStats(contestData);
+        setStats(data.solved);
+        setContestStats(data.contest);
       } catch (err) {
         console.error(err);
         setError(true);

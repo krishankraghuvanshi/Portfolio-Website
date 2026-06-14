@@ -71,3 +71,88 @@ ${message}`,
     res.status(500).json({ message: 'Server Error' });
   }
 };
+
+// Fetch LeetCode stats via GraphQL proxy
+exports.getLeetCodeStats = async (req, res) => {
+  const username = req.params.username || 'kri5H4nkr49Hu1c';
+  
+  const solvedQuery = `
+    query userProblemsSolved($username: String!) {
+      matchedUser(username: $username) {
+        profile { ranking }
+        submitStatsGlobal {
+          acSubmissionNum { difficulty count }
+        }
+      }
+    }
+  `;
+
+  const contestQuery = `
+    query userContestRankingInfo($username: String!) {
+      userContestRanking(username: $username) {
+        rating
+        globalRanking
+        topPercentage
+        badge { name }
+      }
+      userContestRankingHistory(username: $username) {
+        rating
+        contest { title }
+      }
+    }
+  `;
+
+  try {
+    const [solvedRes, contestRes] = await Promise.all([
+      fetch('https://leetcode.com/graphql', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ query: solvedQuery, variables: { username } })
+      }),
+      fetch('https://leetcode.com/graphql', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ query: contestQuery, variables: { username } })
+      })
+    ]);
+
+    if (!solvedRes.ok || !contestRes.ok) {
+      throw new Error('Failed to fetch from LeetCode GraphQL');
+    }
+
+    const solvedData = await solvedRes.json();
+    const contestData = await contestRes.json();
+
+    const acSubmissionNum = solvedData.data?.matchedUser?.submitStatsGlobal?.acSubmissionNum || [];
+    const solvedStats = {
+      ranking: solvedData.data?.matchedUser?.profile?.ranking || 0,
+      solvedProblem: acSubmissionNum.find(s => s.difficulty === 'All')?.count || 0,
+      easySolved: acSubmissionNum.find(s => s.difficulty === 'Easy')?.count || 0,
+      mediumSolved: acSubmissionNum.find(s => s.difficulty === 'Medium')?.count || 0,
+      hardSolved: acSubmissionNum.find(s => s.difficulty === 'Hard')?.count || 0,
+    };
+
+    const contestRanking = contestData.data?.userContestRanking || {};
+    const contestHistory = contestData.data?.userContestRankingHistory || [];
+    
+    const contestStats = {
+      contestRating: contestRanking.rating || 0,
+      contestGlobalRanking: contestRanking.globalRanking || 0,
+      contestTopPercentage: contestRanking.topPercentage || 0,
+      contestBadges: { name: contestRanking.badge?.name || null },
+      contestParticipation: contestHistory.map(h => ({
+        rating: h.rating,
+        contest: { title: h.contest?.title }
+      }))
+    };
+
+    res.json({
+      solved: solvedStats,
+      contest: contestStats
+    });
+
+  } catch (error) {
+    console.error('Error fetching LeetCode stats:', error);
+    res.status(500).json({ message: 'Error fetching LeetCode stats' });
+  }
+};

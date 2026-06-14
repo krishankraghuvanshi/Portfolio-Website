@@ -22,3 +22,13 @@ export const submitContact = async (formData) => {
     throw error;
   }
 };
+
+export const fetchLeetCodeStats = async (username = 'kri5H4nkr49Hu1c') => {
+  try {
+    const response = await axios.get(`${API_URL}/leetcode/${username}`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching LeetCode stats:', error);
+    throw error;
+  }
+};

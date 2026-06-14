@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import { fetchLeetCodeStats } from '../services/api';
 
 const Achievements = () => {
   const [profile, setProfile] = useState(null);
@@ -10,18 +11,13 @@ const Achievements = () => {
   useEffect(() => {
     const fetchStats = async () => {
       try {
-        const [profileRes, contestRes] = await Promise.all([
-          fetch('https://alfa-leetcode-api.onrender.com/kri5H4nkr49Hu1c'),
-          fetch('https://alfa-leetcode-api.onrender.com/kri5H4nkr49Hu1c/contest')
-        ]);
+        const data = await fetchLeetCodeStats();
         
-        if (!profileRes.ok || !contestRes.ok) throw new Error('Failed to fetch data');
+        // Set profile ranking from solved stats
+        setProfile({ ranking: data.solved.ranking });
         
-        const profileData = await profileRes.json();
-        const contestData = await contestRes.json();
-        
-        setProfile(profileData);
-        setContestStats(contestData);
+        // We simulate the contest data structure for top percentage
+        setContestStats({ contestTopPercentage: data.contest.contestTopPercentage });
       } catch (err) {
         console.error(err);
         setError(true);
