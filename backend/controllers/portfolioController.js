@@ -1,8 +1,17 @@
 const { Stat, Experience, Project, Skill, Education } = require('../models/Portfolio');
+const mongoose = require('mongoose');
+
+const connectDB = async () => {
+  if (mongoose.connection.readyState === 0) {
+    const uri = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/portfolio';
+    await mongoose.connect(uri);
+  }
+};
 
 // Fetch all portfolio data
 exports.getPortfolioData = async (req, res) => {
   try {
+    await connectDB();
     const stats = await Stat.find({});
     const experiences = await Experience.find({});
     const projects = await Project.find({});
@@ -27,6 +36,7 @@ const nodemailer = require('nodemailer');
 // Handle contact form submission
 exports.submitContactForm = async (req, res) => {
   try {
+    await connectDB();
     const { name, email, message } = req.body;
     
     // Configure transporter
