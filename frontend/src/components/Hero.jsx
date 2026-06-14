@@ -15,7 +15,10 @@ const Hero = () => {
             Hello, I am
           </h2>
           <h1 className="gradient-text" style={{ fontSize: '5rem', fontWeight: 800, lineHeight: 1.1, marginBottom: '0.5rem' }}>
-            Krishank Raghuvanshi
+            Krishank <span style={{ whiteSpace: 'nowrap' }}>Raghuvanshi
+            <a href="https://emoji.gg/emoji/807527-pigeondance" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block', marginLeft: '1rem', verticalAlign: 'middle' }}>
+              <img src="https://cdn3.emoji.gg/emojis/807527-pigeondance.gif" width="64" height="64" alt="pigeondance" style={{ verticalAlign: 'middle', display: 'block' }} />
+            </a></span>
           </h1>
           <h3 style={{ fontSize: '1.5rem', color: 'var(--text-secondary)', fontWeight: 500, marginBottom: '1.5rem', whiteSpace: 'nowrap' }}>
             Competitive Programmer · Full Stack Developer · Problem Solver · Machine Learning

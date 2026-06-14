@@ -26,7 +26,7 @@ const Contact = () => {
     <section id="contact" className="section">
       <div className="container">
         <h2 className="section-title">Contact</h2>
-        <div style={{ display: 'flex', gap: '2rem', justifyContent: 'center', marginBottom: '3rem' }}>
+        <div style={{ display: 'flex', gap: '2rem', justifyContent: 'center', marginBottom: '3rem', alignItems: 'center', flexWrap: 'wrap' }}>
           <a href="https://github.com/krishankraghuvanshi" target="_blank" rel="noopener noreferrer" style={{ color: 'white', fontSize: '1.2rem', textDecoration: 'underline', textDecorationColor: 'white', textUnderlineOffset: '4px' }}>GitHub</a>
           <a href="https://www.linkedin.com/in/krishankraghuvanshi/" target="_blank" rel="noopener noreferrer" style={{ color: 'white', fontSize: '1.2rem', textDecoration: 'underline', textDecorationColor: 'white', textUnderlineOffset: '4px' }}>LinkedIn</a>
           <a href="https://leetcode.com/u/kri5H4nkr49Hu1c/" target="_blank" rel="noopener noreferrer" style={{ color: 'white', fontSize: '1.2rem', textDecoration: 'underline', textDecorationColor: 'white', textUnderlineOffset: '4px' }}>LeetCode</a>
@@ -62,13 +62,19 @@ const Contact = () => {
             </div>
             <div>
               <label style={{ display: 'block', marginBottom: '0.5rem' }}>Message</label>
-              <textarea 
-                name="message" 
-                rows="5" 
-                value={formData.message} 
-                onChange={handleChange} 
-                required 
-              ></textarea>
+              <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
+                <a href="https://emoji.gg/emoji/69764-pickingpetals" target="_blank" rel="noopener noreferrer" style={{ flexShrink: 0 }}>
+                  <img src="https://cdn3.emoji.gg/emojis/69764-pickingpetals.gif" width="48" height="48" alt="PickingPetals" />
+                </a>
+                <textarea 
+                  name="message" 
+                  rows="5" 
+                  value={formData.message} 
+                  onChange={handleChange} 
+                  required 
+                  style={{ width: '100%' }}
+                ></textarea>
+              </div>
             </div>
             <button type="submit" className="btn" style={{ width: '100%' }}>
               Send Message

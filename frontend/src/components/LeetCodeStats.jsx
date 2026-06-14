@@ -41,7 +41,12 @@ const LeetCodeStats = () => {
   return (
     <section id="leetcode" className="section">
       <div className="container">
-        <h2 className="section-title">LeetCode Stats</h2>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '1rem', marginBottom: '3rem' }}>
+          <h2 className="section-title" style={{ marginBottom: 0 }}>LeetCode Stats</h2>
+          <a href="https://emoji.gg/emoji/533693-capookeyboardslam" target="_blank" rel="noopener noreferrer" style={{ display: 'flex' }}>
+            <img src="https://cdn3.emoji.gg/emojis/533693-capookeyboardslam.gif" width="64" height="64" alt="CapooKeyboardSlam" />
+          </a>
+        </div>
         
         {loading && (
           <div style={{ textAlign: 'center', color: 'white', padding: '2rem' }}>
