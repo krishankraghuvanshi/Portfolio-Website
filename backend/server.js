@@ -13,6 +13,8 @@ app.use(express.json());
 
 // Routes
 app.use('/api', apiRoutes);
+// Mount for Vercel experimentalServices which preserves the route prefix
+app.use('/_/backend/api', apiRoutes);
 
 // Database connection
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/portfolio';
