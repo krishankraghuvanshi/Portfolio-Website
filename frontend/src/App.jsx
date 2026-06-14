@@ -46,17 +46,20 @@ function App() {
       <div className="bg-blob blob-2"></div>
       <nav style={{ 
         position: 'fixed', top: 0, width: '100%', 
-        padding: '1.5rem', background: 'rgba(10, 10, 15, 0.8)', 
+        padding: '1rem 1.5rem', background: 'rgba(10, 10, 15, 0.8)', 
         backdropFilter: 'blur(10px)', zIndex: 100, borderBottom: '1px solid var(--glass-border)' 
       }}>
-        <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <h1 style={{ fontSize: '1.5rem', fontWeight: 800 }}>KR.</h1>
-          <div style={{ display: 'flex', gap: '2rem' }}>
-            <a href="#projects" style={{ color: 'white' }}>Projects</a>
-            <a href="#skills" style={{ color: 'white' }}>Skills</a>
-            <a href="#leetcode" style={{ color: 'white' }}>LeetCode</a>
-            <a href="#achievements" style={{ color: 'white' }}>Achievements</a>
-            <a href="#contact" style={{ color: 'white' }}>Contact</a>
+        <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
+          <h1 style={{ fontSize: '1.5rem', fontWeight: 800, display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            KR.
+            <img src="https://cdn3.emoji.gg/emojis/21225-gojo-wave.png" width="32" height="32" alt="logo-gif" />
+          </h1>
+          <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+            <a href="#projects" className="nav-link">Projects</a>
+            <a href="#skills" className="nav-link">Skills</a>
+            <a href="#leetcode" className="nav-link">LeetCode</a>
+            <a href="#achievements" className="nav-link">Achievements</a>
+            <a href="#contact" className="nav-link">Contact</a>
           </div>
         </div>
       </nav>
