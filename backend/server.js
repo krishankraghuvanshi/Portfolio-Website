@@ -17,13 +17,19 @@ app.use('/api', apiRoutes);
 // Database connection
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/portfolio';
 
-mongoose.connect(MONGODB_URI)
-  .then(() => {
-    console.log('Connected to MongoDB successfully.');
-    app.listen(PORT, () => {
-      console.log(`Server is running on port ${PORT}`);
-    });
-  })
-  .catch((err) => {
-    console.error('MongoDB connection error:', err);
+// Connect to MongoDB (handles both local and serverless Vercel environments)
+if (mongoose.connection.readyState === 0) {
+  mongoose.connect(MONGODB_URI)
+    .then(() => console.log('Connected to MongoDB successfully.'))
+    .catch((err) => console.error('MongoDB connection error:', err));
+}
+
+// Only listen if not running on Vercel
+if (!process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
   });
+}
+
+// Export the Express API
+module.exports = app;
