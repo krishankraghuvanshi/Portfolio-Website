@@ -5,7 +5,12 @@ const Education = ({ data }) => {
   return (
     <section id="education" className="section">
       <div className="container">
-        <h2 className="section-title">Education</h2>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '1rem', marginBottom: '3rem' }}>
+          <h2 className="section-title" style={{ marginBottom: 0 }}>Education</h2>
+          <a href="https://emoji.gg/emoji/63062-recyclebin7" target="_blank" rel="noopener noreferrer" style={{ display: 'flex' }}>
+            <img src="https://cdn3.emoji.gg/emojis/63062-recyclebin7.png" width="64" height="64" alt="recyclebin7" />
+          </a>
+        </div>
         <div style={{ maxWidth: '800px', margin: '0 auto' }}>
           {data.map((edu, index) => (
             <motion.div 
