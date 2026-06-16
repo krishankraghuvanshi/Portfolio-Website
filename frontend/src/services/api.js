@@ -32,3 +32,25 @@ export const fetchLeetCodeStats = async (username = 'kri5H4nkr49Hu1c') => {
     throw error;
   }
 };
+
+export const fetchCodeforcesStats = async (username = 'Krishank') => {
+  try {
+    const response = await axios.get(`${API_URL}/codeforces/${username}`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching Codeforces stats:', error);
+    throw error;
+  }
+};
+
+export const fetchCodeChefStats = async (username = 'krishhhank') => {
+  try {
+    const response = await axios.get(`${API_URL}/codechef/${username}`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching CodeChef stats:', error);
+    throw error;
+  }
+};
+
+

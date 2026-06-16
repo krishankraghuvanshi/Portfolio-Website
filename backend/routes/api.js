@@ -11,4 +11,10 @@ router.post('/contact', portfolioController.submitContactForm);
 // GET /api/leetcode/:username
 router.get('/leetcode/:username', portfolioController.getLeetCodeStats);
 
+// GET /api/codeforces/:username
+router.get('/codeforces/:username', portfolioController.getCodeforcesStats);
+
+// GET /api/codechef/:username
+router.get('/codechef/:username', portfolioController.getCodeChefStats);
+
 module.exports = router;

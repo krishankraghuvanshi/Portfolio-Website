@@ -4,7 +4,7 @@ import Projects from './components/Projects';
 import Skills from './components/Skills';
 import Education from './components/Education';
 import Contact from './components/Contact';
-import LeetCodeStats from './components/LeetCodeStats';
+import CodingStats from './components/CodingStats';
 import Achievements from './components/Achievements';
 import { fetchPortfolioData } from './services/api';
 
@@ -57,7 +57,7 @@ function App() {
           <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap', justifyContent: 'center' }}>
             <a href="#projects" className="nav-link">Projects</a>
             <a href="#skills" className="nav-link">Skills</a>
-            <a href="#leetcode" className="nav-link">LeetCode</a>
+            <a href="#coding-stats" className="nav-link">Profiles</a>
             <a href="#achievements" className="nav-link">Achievements</a>
             <a href="#contact" className="nav-link">Contact</a>
           </div>
@@ -65,7 +65,7 @@ function App() {
       </nav>
 
       <Hero />
-      <LeetCodeStats />
+      <CodingStats />
       <Achievements />
       <Projects data={data.projects} />
       <Skills data={data.skills} />
