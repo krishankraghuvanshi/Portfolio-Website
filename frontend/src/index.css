@@ -287,3 +287,22 @@ input:focus, textarea:focus {
   }
 }
 
+.nav-resume-btn {
+  padding: 0.45rem 1.2rem;
+  border-radius: 8px;
+  background: var(--accent-gradient);
+  color: white;
+  font-weight: 600;
+  font-size: 0.95rem;
+  box-shadow: 0 0 12px rgba(168, 85, 247, 0.3);
+  transition: all 0.3s ease;
+  border: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.nav-resume-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.6);
+  background: linear-gradient(135deg, var(--accent-secondary), var(--accent-primary));
+}

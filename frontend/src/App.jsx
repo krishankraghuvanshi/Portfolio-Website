@@ -56,6 +56,14 @@ function App() {
             <img src="https://cdn3.emoji.gg/emojis/21225-gojo-wave.png" width="32" height="32" alt="logo-gif" />
           </h1>
           <div className="nav-links">
+            <a 
+              href="https://drive.google.com/file/d/1yeY4VSRcJB8jUBUMnWnZi4yrXEuO6PKt/view?usp=sharing" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="nav-resume-btn"
+            >
+              Resume
+            </a>
             <a href="#projects" className="nav-link">Projects</a>
             <a href="#skills" className="nav-link">Skills</a>
             <a href="#coding-stats" className="nav-link">Profiles</a>
@@ -74,6 +82,16 @@ function App() {
         </div>
         
         <div className={`nav-mobile-menu ${isNavOpen ? 'open' : ''}`}>
+          <a 
+            href="https://drive.google.com/file/d/1yeY4VSRcJB8jUBUMnWnZi4yrXEuO6PKt/view?usp=sharing" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="nav-resume-btn"
+            onClick={() => setIsNavOpen(false)}
+            style={{ width: '100%', marginBottom: '1rem' }}
+          >
+            Resume
+          </a>
           <a href="#projects" className="nav-link" onClick={() => setIsNavOpen(false)}>Projects</a>
           <a href="#skills" className="nav-link" onClick={() => setIsNavOpen(false)}>Skills</a>
           <a href="#coding-stats" className="nav-link" onClick={() => setIsNavOpen(false)}>Profiles</a>
