@@ -190,3 +190,100 @@ input:focus, textarea:focus {
 .nav-link:hover::after {
   width: 100%;
 }
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 110;
+  position: relative;
+  width: 28px;
+  height: 20px;
+}
+
+.nav-toggle span {
+  display: block;
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  background: white;
+  border-radius: 2px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: .25s ease-in-out;
+}
+
+.nav-toggle span:nth-child(1) {
+  top: 0px;
+}
+
+.nav-toggle span:nth-child(2) {
+  top: 9px;
+}
+
+.nav-toggle span:nth-child(3) {
+  top: 18px;
+}
+
+.nav-toggle.open span:nth-child(1) {
+  top: 9px;
+  transform: rotate(135deg);
+}
+
+.nav-toggle.open span:nth-child(2) {
+  opacity: 0;
+  left: -40px;
+}
+
+.nav-toggle.open span:nth-child(3) {
+  top: 9px;
+  transform: rotate(-135deg);
+}
+
+.nav-mobile-menu {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+  
+  .nav-toggle {
+    display: block;
+  }
+  
+  .nav-mobile-menu {
+    display: flex;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 260px;
+    height: 100vh;
+    background: rgba(10, 10, 15, 0.95);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-left: 1px solid var(--glass-border);
+    padding: 8rem 2rem 2rem 2rem;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: flex-start;
+    z-index: 105;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+    transform: translateX(100%);
+  }
+  
+  .nav-mobile-menu.open {
+    transform: translateX(0);
+  }
+}
+

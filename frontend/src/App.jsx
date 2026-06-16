@@ -17,6 +17,7 @@ function App() {
     education: []
   });
   const [loading, setLoading] = useState(true);
+  const [isNavOpen, setIsNavOpen] = useState(false);
 
   useEffect(() => {
     const loadData = async () => {
@@ -49,18 +50,35 @@ function App() {
         padding: '1rem 1.5rem', background: 'rgba(10, 10, 15, 0.8)', 
         backdropFilter: 'blur(10px)', zIndex: 100, borderBottom: '1px solid var(--glass-border)' 
       }}>
-        <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
+        <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '1rem' }}>
           <h1 style={{ fontSize: '1.5rem', fontWeight: 800, display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
             KR.
             <img src="https://cdn3.emoji.gg/emojis/21225-gojo-wave.png" width="32" height="32" alt="logo-gif" />
           </h1>
-          <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+          <div className="nav-links">
             <a href="#projects" className="nav-link">Projects</a>
             <a href="#skills" className="nav-link">Skills</a>
             <a href="#coding-stats" className="nav-link">Profiles</a>
             <a href="#achievements" className="nav-link">Achievements</a>
             <a href="#contact" className="nav-link">Contact</a>
           </div>
+          <button 
+            className={`nav-toggle ${isNavOpen ? 'open' : ''}`}
+            onClick={() => setIsNavOpen(!isNavOpen)}
+            aria-label="Toggle navigation"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+        
+        <div className={`nav-mobile-menu ${isNavOpen ? 'open' : ''}`}>
+          <a href="#projects" className="nav-link" onClick={() => setIsNavOpen(false)}>Projects</a>
+          <a href="#skills" className="nav-link" onClick={() => setIsNavOpen(false)}>Skills</a>
+          <a href="#coding-stats" className="nav-link" onClick={() => setIsNavOpen(false)}>Profiles</a>
+          <a href="#achievements" className="nav-link" onClick={() => setIsNavOpen(false)}>Achievements</a>
+          <a href="#contact" className="nav-link" onClick={() => setIsNavOpen(false)}>Contact</a>
         </div>
       </nav>
 
