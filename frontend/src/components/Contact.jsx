@@ -30,7 +30,7 @@ const Contact = () => {
           <a href="https://github.com/krishankraghuvanshi" target="_blank" rel="noopener noreferrer" style={{ color: 'white', fontSize: '1.2rem', textDecoration: 'underline', textDecorationColor: 'white', textUnderlineOffset: '4px' }}>GitHub</a>
           <a href="https://www.linkedin.com/in/krishankraghuvanshi/" target="_blank" rel="noopener noreferrer" style={{ color: 'white', fontSize: '1.2rem', textDecoration: 'underline', textDecorationColor: 'white', textUnderlineOffset: '4px' }}>LinkedIn</a>
           <a href="https://leetcode.com/u/kri5H4nkr49Hu1c/" target="_blank" rel="noopener noreferrer" style={{ color: 'white', fontSize: '1.2rem', textDecoration: 'underline', textDecorationColor: 'white', textUnderlineOffset: '4px' }}>LeetCode</a>
-          <a href="https://codeforces.com/profile/Krishank" target="_blank" rel="noopener noreferrer" style={{ color: 'white', fontSize: '1.2rem', textDecoration: 'underline', textDecorationColor: 'white', textUnderlineOffset: '4px' }}>CodeForces</a>
+          {/* <a href="https://codeforces.com/profile/Krishank" target="_blank" rel="noopener noreferrer" style={{ color: 'white', fontSize: '1.2rem', textDecoration: 'underline', textDecorationColor: 'white', textUnderlineOffset: '4px' }}>CodeForces</a> */}
         </div>
         <motion.div 
           className="glass-panel"

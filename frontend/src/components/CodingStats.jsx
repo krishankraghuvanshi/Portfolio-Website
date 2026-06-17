@@ -14,14 +14,14 @@ const CodingStats = () => {
   useEffect(() => {
     const fetchAllStats = async () => {
       try {
-        const [lc, cf, cc] = await Promise.all([
+        const [lc] = await Promise.all([
           fetchLeetCodeStats('kri5H4nkr49Hu1c'),
-          fetchCodeforcesStats('Krishank'),
-          fetchCodeChefStats('krishhhank')
+          // fetchCodeforcesStats('Krishank'),
+          // fetchCodeChefStats('krishhhank')
         ]);
         setLeetcodeData(lc);
-        setCodeforcesData(cf);
-        setCodechefData(cc);
+        // setCodeforcesData(cf);
+        // setCodechefData(cc);
       } catch (err) {
         console.error('Error fetching statistics:', err);
         setError(true);
@@ -122,7 +122,7 @@ const CodingStats = () => {
               )}
             </button>
 
-            {/* Codeforces Tab Button */}
+            {/* Codeforces Tab Button commented off
             <button
               onClick={() => setActiveTab('codeforces')}
               style={{
@@ -154,8 +154,9 @@ const CodingStats = () => {
                 />
               )}
             </button>
+            */}
 
-            {/* CodeChef Tab Button */}
+            {/* CodeChef Tab Button commented off
             <button
               onClick={() => setActiveTab('codechef')}
               style={{
@@ -187,6 +188,7 @@ const CodingStats = () => {
                 />
               )}
             </button>
+            */}
 
           </div>
         </div>
@@ -328,7 +330,8 @@ const CodingStats = () => {
               </motion.div>
             )}
 
-            {activeTab === 'codeforces' && codeforcesData && (
+            {/* Codeforces Stats commented off */}
+            {false && activeTab === 'codeforces' && codeforcesData && (
               <motion.div
                 key="codeforces-tab"
                 initial={{ opacity: 0, y: 15 }}
@@ -436,7 +439,8 @@ const CodingStats = () => {
               </motion.div>
             )}
 
-            {activeTab === 'codechef' && codechefData && (
+            {/* CodeChef Stats commented off */}
+            {false && activeTab === 'codechef' && codechefData && (
               <motion.div
                 key="codechef-tab"
                 initial={{ opacity: 0, y: 15 }}
